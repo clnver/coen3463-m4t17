@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    .col-lg-12.text-center
+     h1 Company Details
+     p Company Name: #{company.company_name}
+     p Stock Symbol: #{company.stock_symbol}
+     p Sector: #{company.sector}
+     p Subsector: #{company.subsector}
+     p Listing Date: #{company.listing_date}
+     p Company Website: #{company.company_website}
+     P Current CEO: #{company.current_CEO}
+     p Company Logo Link: #{company.CompanyLogo_link}
+     p Create Date of Record: #{company.create_date} 
+     p Update Date of Record: #{company.update_date}
+
+     a.btn.btn-dark.btn-lg(href='/company/' + company._id + '/update') UPDATE
+     br
+     br
+     a.btn.btn-dark.btn-lg(href='/company/' + company._id + '/delete') DELETE
+
+

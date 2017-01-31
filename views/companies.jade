@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  .col-lg-3.text-center
+    h1.intro-text.text-center Add New Company
+    form(method="POST", action="/companies")
+      p
+        input(type="text", placeholder="Company Name", name="company_name")
+      p
+        input(type="text", placeholder="Stock Symbol", name="stock_symbol")
+      p
+        input(type="text", placeholder="Sector", name="sector")
+      p
+        input(type="text", placeholder="Subsector", name="subsector")
+      p
+        input(type="text", placeholder="Listing Date", name="listing_date")
+      p
+        input(type="text", placeholder="Company Website", name="company_website")
+      p
+        input(type="text", placeholder="Current CEO", name="current_CEO")
+      p
+        input(type="text", placeholder="Company Logo Link", name="CompanyLogo_link")
+      p
+        input(type="text", placeholder="Create Date", name="create_date")
+      p
+        input(type="text", placeholder="Update Date", name="update_date")
+      button(type="submit") Submit
+  
+  .col-lg-12.text-alignleft
+    h2 The Philippine Stock Exchange | List of Companies 
+    ul
+      for company in companies
+        li
+          a(href='/company/' + company._id ) #{company.company_name} | #{company.stock_symbol} | #{company.sector}

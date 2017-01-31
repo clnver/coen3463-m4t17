@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .col-lg-3.text-center
+    h1.intro-text.text-center Update Details
+    form(method="POST", action="/company/#{update._id}/update" )
+      p
+        input(type="text", placeholder="Company Name", name="company_name" value="#{update.company_name}")
+      p
+        input(type="text", placeholder="Stock Symbol", name="stock_symbol" value="#{update.stock_symbol}")
+      p
+        input(type="text", placeholder="Sector", name="sector" value="#{update.sector}")
+      p
+        input(type="text", placeholder="Subsector", name="subsector" value="#{update.subsector}")
+      p
+        input(type="text", placeholder="Listing Date", name="listing_date" value="#{update.listing_date}")
+      p
+        input(type="text", placeholder="Company Website", name="company_website")
+      p
+        input(type="text", placeholder="Current CEO", name="current_CEO")
+      p
+        input(type="text", placeholder="Company Logo Link", name="CompanyLogo_link")
+      p
+        input(type="text", placeholder="Create Date", name="create_date")
+      p
+        input(type="text", placeholder="Update Date", name="update_date")
+      button(type="submit") Submit 

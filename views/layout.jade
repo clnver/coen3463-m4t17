@@ -1,0 +1,81 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Philippine Stock Exchange
+    link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+    link(href='/stylesheets/style101.css', rel='stylesheet')
+    link(href='/stylesheets/stylish-portfolio.css', rel='stylesheet')
+    link(href='/stylesheets/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic', rel='stylesheet', type='text/css')
+    
+    a#menu-toggle.btn.btn-dark.btn-lg.toggle(href='#')
+        i.fa.fa-bars
+      nav#sidebar-wrapper
+        ul.sidebar-nav
+          a#menu-close.btn.btn-light.btn-lg.pull-right.toggle(href='#')
+            i.fa.fa-times
+          li.sidebar-brand
+            a(href='#top', onclick='$("#menu-close").click();') PSE Edge
+          li
+            a(href='#top', onclick='$("#menu-close").click();') Home
+          li
+            a(href='/companies', onclick='$("#menu-close").click();') Add Company
+          li
+            a(href='/auth/login', onclick='$("#menu-close").click();') Login
+
+      header#top.header
+          .text-vertical-center
+            h1 Philippine Stock Exchange
+
+    body
+      block content
+
+    footer
+        .container
+          .row
+            .col-lg-10.col-lg-offset-1.text-center
+              h4
+                strong Philippine Stock Exchange Plaza
+              p
+                | Ayala Triangle, Ayala Avenue,
+                br
+                | Makati City 1226 
+                br
+                | Philippines
+              ul.list-unstyled
+                li
+                  i.fa.fa-phone.fa-fw
+                  | Tel. No.: (632) 819-4100
+                  br
+                  | Fax No.: (632) 891-9004
+                li
+                  i.fa.fa-envelope-o.fa-fw
+                  a(href='mailto:name@example.com') pird@pse.com.ph
+              br
+              ul.list-inline
+                li
+                  a(href='https://www.facebook.com/PhStockExchange/?fref=ts')
+                    i.fa.fa-facebook.fa-fw.fa-3x
+                li
+                  a(href='https://twitter.com/PhStockExchange')
+                    i.fa.fa-twitter.fa-fw.fa-3x
+                  hr.small
+                p.text-muted © 2017 THE PHILIPPINE STOCK EXCHANGE, INC., All Rights Reserved.
+        a#to-top.btn.btn-dark.btn-lg(href='#top')
+        i.fa.fa-chevron-up.fa-fw.fa-1x
+        script(src='/javascripts/jquery.js')
+        script(src='/javascripts/index.js')
+        script(src='/javascripts/bootstrap.min.js')
+        
+          
+                
+
+
+
+
+

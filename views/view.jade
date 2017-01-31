@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    .col-lg-12.text-alignleft
+        h1 The Philippine Stock Exchange | List of Companies 
+        ul
+            for company in companies
+                li
+                    a(href='/company/' + company._id ) #{company.company_name} | #{company.stock_symbol} | #{company.sector}
