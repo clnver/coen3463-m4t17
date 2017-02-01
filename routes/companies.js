@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var moment = require('moment');
-var Contact = require('../models/companies');
+var Company = require('../models/companies');
 
 
 router.use(function(req, res, next) {
@@ -12,7 +12,7 @@ router.use(function(req, res, next) {
 });
 
 router.get('/', function(req, res) {
-  Contact.find( function(err, companies, count) {
+  Company.find( function(err, companies, count) {
     res.render('list', {companies: companies});
   })
 });
@@ -56,7 +56,7 @@ router.route('/:company_id')
     res.render('edit', {company: company, moment: moment});
   })
 
-  .post(function(req, res) {
+  /*.post(function(req, res) {
     contact.notes.push({
       note: req.body.notes
     });
@@ -68,9 +68,20 @@ router.route('/:company_id')
         res.send('Note added!');
       }
     });
+  })*/
+router.route('/:companyId/update')
+  .all(function(req, res, next) {
+    companyId = req.params.departmentId;
+    company = {};
+    Company.findById(companyId, function(err, data) {
+      company = company;
+      next();
+    });
   })
-
-  .put(function(req, res) {
+  .get(function(req, res) {
+    res.render('update', {update: company});
+  })
+  .post(function(req, res) {
     company.company_name: req.body.company_name,
     company.stock_symbol: req.body.stock_symbol,
     company.sector: req.body.sector,
@@ -86,19 +97,28 @@ router.route('/:company_id')
       if(err) {
         res.status(400).send('Error saving company: ' + err);
       } else {
-        res.send('Company saved');
+        res.redirect('/companies/'+companyId);
       }
     });
   })
 
-  .delete(function(req, res) {
-    contact.remove(function(err, contact) {
+router.route('/:companyId/delete')
+  .all(function(req, res, next) {
+    companyId = req.params.companyId;
+    company = {};
+    Company.findById(companyId, function(err, c) {
+      company = c;
+      next();
+    });
+  })
+  .get(function(req, res) {
+    company.remove(function(err, company) {
       if(err) {
         res.status(400).send("Error removing company: " + err);
       } else {
-        res.send('Company removed');
+         res.send('Company removed');
+        res.redirect('/companies');
       }
     });
   });
-
 module.exports = router;

@@ -14,9 +14,18 @@ var companySchema = new Schema({
     },
     note: String*/
 
-  company_name: String,
-  stock_symbol: String,
-  sector: String,
+  company_name: {
+    type: String,
+    required: [true, 'Company Name is required.']
+    },
+  stock_symbol: {
+    type: String,
+    required: [true, 'Stock Symbol is required.']
+      },
+  sector: {
+    type: String,
+    required: [true, 'Sector is required.']
+    },
   subsector: String,
   listing_date: String,
   company_website: String,
@@ -24,8 +33,8 @@ var companySchema = new Schema({
   CompanyLogo_link: String,
   create_date: String,
   update_date: String
-  }]
-});
+  }, { collection: 'module_4' });
+};
 
 
 module.exports = mongoose.model('Company', companySchema);
