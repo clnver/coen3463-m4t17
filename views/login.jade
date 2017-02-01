@@ -10,29 +10,29 @@ block content
         .tab-content
             #signup
                 h1 Sign Up for Free
-                form(action='/', method='post')
-                .top-row
-                  .field-wrap
-                    label
-                      | First Name
-                      span.req *
-                    input(type='text', required='', autocomplete='off')
-                  .field-wrap
-                    label
-                      | Last Name
-                      span.req *
-                    input(type='text', required='', autocomplete='off')
-                .field-wrap
-                  label
-                    | Email Address
-                    span.req *
-                  input(type='email', required='', autocomplete='off')
-                .field-wrap
-                  label
-                    | Set A Password
-                    span.req *
-                  input(type='password', required='', autocomplete='off')
-                button.button.button-block(type='submit') Get Started
+                form(action='/auth/register', method='post')
+                    .top-row
+                      .field-wrap
+                        label
+                          | First Name
+                          span.req *
+                        input(type='text', name='fname', required='', autocomplete='off')
+                      .field-wrap
+                        label
+                          | Last Name
+                          span.req *
+                        input(type='text', name='lname', required='', autocomplete='off')
+                    .field-wrap
+                      label
+                        | Email Address
+                        span.req *
+                      input(type='email', name='username', required='', autocomplete='off')
+                    .field-wrap
+                      label
+                        | Set A Password
+                        span.req *
+                      input(type='password', name='password', required='', autocomplete='off')
+                    button.button.button-block(type='submit') Get Started
             #login
                 h1 Welcome Back!
                 form(action='/', method='post')
@@ -40,12 +40,12 @@ block content
                       label
                         | Email Address
                         span.req *
-                      input(type='email', required='', autocomplete='off')
+                      input(type='email', name='username', required='', autocomplete='off')
                     .field-wrap
                       label
                         | Password
                         span.req *
-                      input(type='password', required='', autocomplete='off')
+                      input(type='password', name='password', required='', autocomplete='off')
                     p.forgot
                       a(href='#') Forgot Password?
                     button.button.button-block Log In

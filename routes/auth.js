@@ -5,32 +5,31 @@ var router = express.Router();
 var passport = require('passport');
 
 
-router.get('/login', function(req, res, next) {
-  res.render('login');
-});
+
 router.route('/register')
   .get(function(req, res, next) {
-    res.render('register', {});
+    res.render('login', {});
   })
   .post(function(req, res, next) {
-    User.register(new User({username: req.body.username}), req.body.password, function(err, account) {
+    User.register(new User({username: req.body.username}), req.body.password,  req.body.fname,  req.body.lname, function(err, account) {
       if(err) {
-        return res.render('register', {account: account});
+        return res.render('login');
       }
 
       req.login(account, function(err) {
-        res.redirect('/contacts');
+        res.redirect('/addCompanies');
       });
-    })
-  })
+    });
+  });
 
-
-
+router.get('/login', function(req, res, next) {
+  res.render('login');
+});
 
 router.post('/login',
   passport.authenticate('local', { failureRedirect: '/login' }),
   function(req, res) {
-    res.redirect('/contacts');
+    res.redirect('/addCompanies');
   });
 
 router.all('/logout', function(req, res, next) {

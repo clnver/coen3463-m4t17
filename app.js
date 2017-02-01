@@ -5,16 +5,18 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var auth = require ('./routes/auth');
-var update = require ('./routes/update');
+
 
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectId;
 
 var app = express();
 var db;
+
+var index = require('./routes/index');
+var users = require('./routes/users');
+var auth = require ('./routes/auth');
+var update = require ('./routes/update');
 
 var mdbUrl = "mongodb://admin:somethingsweet@ds159978.mlab.com:59978/coen3463-m3t17"
 
@@ -45,7 +47,7 @@ MongoClient.connect(mdbUrl, function(err, database) {
     app.use('/auth', auth);
 
     	
-	app.get('/companies', function(req, res) {
+	app.get('/addCompanies', function(req, res) {
 		var companiesCollection = db.collection('companies');
         companiesCollection.find().toArray(function(err, companies) {
            console.log('companies loaded', companies);
@@ -77,7 +79,7 @@ MongoClient.connect(mdbUrl, function(err, database) {
                 return;
             }
             console.log("Saving Data Successful!");
-            res.redirect('/companies');
+            res.redirect('/addCompanies');
         })
     });
 
@@ -133,7 +135,7 @@ MongoClient.connect(mdbUrl, function(err, database) {
             return console.log(err)
             }
             console.log("Deletion Successful!");
-            res.redirect('/companies/')   
+            res.redirect('/addCompanies/')   
         });
     });
     // catch 404 and forward to error handler
