@@ -3,7 +3,7 @@ extends layout
 block content
   .col-lg-3.text-center
     h1.intro-text.text-center Update Details
-    form(method="POST", action="/company/#{update._id}/update" )
+    form(role="form", method="post", action="/companies/#{update.id}?_method=put")
       p
         input(type="text", placeholder="Company Name", name="company_name" value="#{update.company_name}")
       p

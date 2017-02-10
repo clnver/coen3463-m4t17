@@ -16,10 +16,11 @@ var ObjectId = require('mongodb').ObjectId;
 var app = express();
 var db;*/
 
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 var auth = require ('./routes/auth');
-var update = require ('./routes/update');
+var companies = require ('./routes/companies');
 
 var MongoURI = "mongodb://admin:somethingsweet@ds159978.mlab.com:59978/coen3463-m3t17"
 
@@ -67,8 +68,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use('/', index);
-//app.use('/companies', companies);
 app.use('/auth', auth);
+app.use('/companies', companies);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

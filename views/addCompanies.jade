@@ -1,34 +1,62 @@
 extends layout
 
 block content
-  .col-lg-3.text-center
-    h1.intro-text.text-center Add New Company
-    form(method="POST", action="/addCompanies")
-      p
-        input(type="text", placeholder="Company Name", name="company_name")
-      p
-        input(type="text", placeholder="Stock Symbol", name="stock_symbol")
-      p
-        input(type="text", placeholder="Sector", name="sector")
-      p
-        input(type="text", placeholder="Subsector", name="subsector")
-      p
-        input(type="text", placeholder="Listing Date", name="listing_date")
-      p
-        input(type="text", placeholder="Company Website", name="company_website")
-      p
-        input(type="text", placeholder="Current CEO", name="current_CEO")
-      p
-        input(type="text", placeholder="Company Logo Link", name="CompanyLogo_link")
-      p
-        input(type="text", placeholder="Create Date", name="create_date")
-      p
-        input(type="text", placeholder="Update Date", name="update_date")
-      button(type="submit") Submit
+  .form
+    .tab-content
+      h1 Add New Company
+      form(action='/addCompanies', method='post')
+          .top-row
+            .field-wrap
+              label
+                | Company Name
+                span.req *
+              input(type='text', name='company_name', required='', autocomplete='off')
+            .field-wrap
+              label
+                | Stock Symbol
+                span.req *
+              input(type='text', name='stock_symbol', required='', autocomplete='off')
+            .field-wrap
+              label
+                | Sector
+                span.req *
+              input(type='text', name='sector', required='', autocomplete='off')
+            .field-wrap
+              label
+                | Subsector
+                span.req *
+              input(type='text', name='subsector', required='', autocomplete='off')
+            .field-wrap
+              label
+                | Listing Date
+                span.req *
+              input(type='text', name='listing_date', required='', autocomplete='off')
+            .field-wrap
+              label
+                | Current CEO
+                span.req *
+              input(type='text', name='current_CEO', required='', autocomplete='off')
+          .field-wrap
+            label
+              | Company Website
+              span.req *
+            input(type='email', name='company_website', required='', autocomplete='off')
+          .field-wrap
+            label
+              | Company Logo Link
+              span.req *
+            input(type='email', name='CompanyLogo_link', required='', autocomplete='off')
+          .field-wrap
+            label
+              | Create Date
+              span.req *
+            input(type='email', name='create_date', required='', autocomplete='off')
+          .field-wrap
+            label
+              | Update Date
+              span.req *
+            input(type='email', name='update_date', required='', autocomplete='off')
+          button.button.button-block(type='submit') Submit
+    // tab-content
+  // /form
   
-  .col-lg-12.text-alignleft
-    h2 The Philippine Stock Exchange | List of Companies 
-    ul
-      for company in companies
-        li
-          a(href='/company/' + company._id ) #{company.company_name} | #{company.stock_symbol} | #{company.sector}

@@ -18,7 +18,7 @@ router.route('/register')
       }
 
       req.login(account, function(err) {
-        res.redirect('/addCompanies');
+        res.redirect('/companies');
       });
     });
   });
@@ -30,7 +30,7 @@ router.get('/login', function(req, res, next) {
 router.post('/login',
   passport.authenticate('local', { failureRedirect: '/login' }),
   function(req, res) {
-    res.redirect('/addCompanies');
+    res.redirect('/companies');
   });
 
 router.all('/logout', function(req, res, next) {

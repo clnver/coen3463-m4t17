@@ -32,7 +32,7 @@ block content
                         | Set A Password
                         span.req *
                       input(type='password', name='password', required='', autocomplete='off')
-                    button.button.button-block(type='submit') Get Started
+                    button.button.button-block(type='submit', value="register") Get Started
             #login
                 h1 Welcome Back!
                 form(action='/auth/login', method='post')
@@ -46,8 +46,6 @@ block content
                         | Password
                         span.req *
                       input(type='password', name='password', required='', autocomplete='off')
-                    p.forgot
-                      a(href='#') Forgot Password?
-                    button.button.button-block Log In
+                    button.button.button-block(type='submit', value="login") Log In
       // tab-content
     // /form

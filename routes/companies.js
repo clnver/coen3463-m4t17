@@ -12,8 +12,8 @@ router.use(function(req, res, next) {
 });
 
 router.get('/', function(req, res) {
-  Company.find( function(err, companies, count) {
-    res.render('list', {companies: companies});
+  Company.find( function(err, company, count) {
+    res.render('companies', {companies: company});
   })
 });
 
@@ -39,8 +39,9 @@ router.post('/', function(req, res) {
 });
 
 router.get('/add', function(req, res) {
-  res.render('add', {company: {}});
+  res.render('addCompanies', {company: {}});
 });
+
 
 router.route('/:company_id')
   .all(function(req, res, next) {
@@ -56,19 +57,6 @@ router.route('/:company_id')
     res.render('edit', {company: company, moment: moment});
   })
 
-  /*.post(function(req, res) {
-    contact.notes.push({
-      note: req.body.notes
-    });
-
-    contact.save(function(err, contact, count) {
-      if(err) {
-        res.status(400).send('Error adding note: ' + err);
-      } else {
-        res.send('Note added!');
-      }
-    });
-  })*/
 router.route('/:companyId/update')
   .all(function(req, res, next) {
     companyId = req.params.departmentId;
@@ -82,16 +70,16 @@ router.route('/:companyId/update')
     res.render('update', {update: company});
   })
   .post(function(req, res) {
-    company.company_name: req.body.company_name,
-    company.stock_symbol: req.body.stock_symbol,
-    company.sector: req.body.sector,
-    company.subsector: req.body.subsector,
-    company.listing_date: req.body.listing_date,
-    company.company_website: req.body.company_website,
-    company.current_CEO: req.body.current_CEO,
-    company.CompanyLogo_link: req.body.CompanyLogo_link,
-    company.create_date: req.body.create_date,
-    company.update_date: req.body.update_date
+    company.company_name= req.body.company_name,
+    company.stock_symbol= req.body.stock_symbol,
+    company.sector= req.body.sector,
+    company.subsector= req.body.subsector,
+    company.listing_date= req.body.listing_date,
+    company.company_website= req.body.company_website,
+    company.current_CEO= req.body.current_CEO,
+    company.CompanyLogo_link= req.body.CompanyLogo_link,
+    company.create_date= req.body.create_date,
+    company.update_date= req.body.update_date
 
     company.save(function(err, company, count) {
       if(err) {

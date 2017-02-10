@@ -1,0 +1,42 @@
+extend layout
+
+block content
+  .container
+    h1 PSE Companies
+    p
+      a#add.btn.btn-default(href="/companies/add") Add new
+    table.table
+      thead
+        tr
+          th Company Name
+          th Stock Symbol
+          th Sector
+          th Subsector
+          th Listing Date
+          th Current CEO
+          th Create Date
+          th Update Date
+      tbody
+        if !companies.length
+          tr
+            td(colspan=4) Add Company
+        else
+          each company in companies
+            tr
+              td
+                a(href="/company/#{company.id}") #{company.company_name}
+              td 
+                a(href="/company/#{company.id}") #{company.stock_symbol}
+              td 
+                a(href="/company/#{company.id}") #{company.sector}
+              td 
+                a(href="/company/#{company.id}") #{company.subsector}
+              td 
+                a(href="/company/#{company.id}") #{company.listing_date}
+              td 
+                a(href="/company/#{company.id}") #{company.current_CEO}
+              td 
+                a(href="/company/#{company.id}") #{company.create_date}
+              td 
+                a(href="/company/#{company.id}") #{company.update_date}
+    
