@@ -70,7 +70,7 @@ router.route('/:company_id/update')
     res.render('update', {update: company});
   })
   .post(function(req, res) {
-    update.company_name= req.body.company_name,
+    company.company_name= req.body.company_name,
     company.stock_symbol= req.body.stock_symbol,
     company.sector= req.body.sector,
     company.subsector= req.body.subsector,
