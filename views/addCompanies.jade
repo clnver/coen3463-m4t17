@@ -4,7 +4,7 @@ block content
   .form
     .tab-content
       h1 Add New Company
-      form(action='/addCompanies', method='post')
+      form(action='/', method='post')
           .top-row
             .field-wrap
               label
@@ -24,37 +24,30 @@ block content
             .field-wrap
               label
                 | Subsector
-                span.req *
               input(type='text', name='subsector', required='', autocomplete='off')
             .field-wrap
               label
                 | Listing Date
-                span.req *
               input(type='text', name='listing_date', required='', autocomplete='off')
             .field-wrap
               label
                 | Current CEO
-                span.req *
               input(type='text', name='current_CEO', required='', autocomplete='off')
           .field-wrap
             label
               | Company Website
-              span.req *
             input(type='email', name='company_website', required='', autocomplete='off')
           .field-wrap
             label
               | Company Logo Link
-              span.req *
             input(type='email', name='CompanyLogo_link', required='', autocomplete='off')
           .field-wrap
             label
               | Create Date
-              span.req *
             input(type='email', name='create_date', required='', autocomplete='off')
           .field-wrap
             label
               | Update Date
-              span.req *
             input(type='email', name='update_date', required='', autocomplete='off')
           button.button.button-block(type='submit') Submit
     // tab-content

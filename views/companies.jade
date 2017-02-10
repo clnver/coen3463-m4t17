@@ -14,8 +14,6 @@ block content
           th Subsector
           th Listing Date
           th Current CEO
-          th Create Date
-          th Update Date
       tbody
         if !companies.length
           tr
@@ -24,19 +22,15 @@ block content
           each company in companies
             tr
               td
-                a(href="/company/#{company.id}") #{company.company_name}
+                a(href='/companies/'+company._id) #{company.company_name}
               td 
-                a(href="/company/#{company.id}") #{company.stock_symbol}
+                a(href="/company/#{company._id}") #{company.stock_symbol}
               td 
-                a(href="/company/#{company.id}") #{company.sector}
+                a(href="/company/#{company._id}") #{company.sector}
               td 
-                a(href="/company/#{company.id}") #{company.subsector}
+                a(href="/company/#{company._id}") #{company.subsector}
               td 
-                a(href="/company/#{company.id}") #{company.listing_date}
+                a(href="/company/#{company._id}") #{company.listing_date}
               td 
-                a(href="/company/#{company.id}") #{company.current_CEO}
-              td 
-                a(href="/company/#{company.id}") #{company.create_date}
-              td 
-                a(href="/company/#{company.id}") #{company.update_date}
+                a(href="/company/#{company._id}") #{company.current_CEO}
     

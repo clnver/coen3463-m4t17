@@ -1,27 +1,57 @@
 extends layout
 
 block content
-  .col-lg-3.text-center
-    h1.intro-text.text-center Update Details
-    form(role="form", method="post", action="/companies/#{update.id}?_method=put")
-      p
-        input(type="text", placeholder="Company Name", name="company_name" value="#{update.company_name}")
-      p
-        input(type="text", placeholder="Stock Symbol", name="stock_symbol" value="#{update.stock_symbol}")
-      p
-        input(type="text", placeholder="Sector", name="sector" value="#{update.sector}")
-      p
-        input(type="text", placeholder="Subsector", name="subsector" value="#{update.subsector}")
-      p
-        input(type="text", placeholder="Listing Date", name="listing_date" value="#{update.listing_date}")
-      p
-        input(type="text", placeholder="Company Website", name="company_website")
-      p
-        input(type="text", placeholder="Current CEO", name="current_CEO")
-      p
-        input(type="text", placeholder="Company Logo Link", name="CompanyLogo_link")
-      p
-        input(type="text", placeholder="Create Date", name="create_date")
-      p
-        input(type="text", placeholder="Update Date", name="update_date")
-      button(type="submit") Submit 
+  .form
+    .tab-content
+      h1 Update Company Details
+      form(role="form", method="post", action="/companies/#{update._id}?_method=put")
+          .top-row
+            .field-wrap
+              label
+                | Company Name
+                span.req *
+              input(type="text", name="company_name" value="#{update.company_name}")
+            .field-wrap
+              label
+                | Stock Symbol
+                span.req *
+              input(type="text", name="stock_symbol" value="#{update.stock_symbol}")
+            .field-wrap
+              label
+                | Sector
+                span.req *
+              input(type="text", name="sector" value="#{update.sector}")
+            .field-wrap
+              label
+                | Subsector
+                span.req *
+              input(type="text", name="subsector" value="#{update.subsector}")
+          .field-wrap
+            label
+              | Listing Date
+              span.req *
+            input(type="text", name="listing_date" value="#{update.listing_date}")
+          .field-wrap
+            label
+              | Current CEO
+              span.req *
+            input(type="text", name="current_CEO" )
+          .field-wrap
+            label
+              | Company Website
+            input(type="text", name="company_website")
+          .field-wrap
+            label
+              | Company Logo Link
+            input(type="text", name="CompanyLogo_link")
+          .field-wrap
+            label
+              | Create Date
+            input(type="text", name="create_date")
+          .field-wrap
+            label
+              | Update Date
+            input(type="text", name="update_date")
+          button.button.button-block(type='submit') Submit
+    // tab-content
+  // /form

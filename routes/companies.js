@@ -54,14 +54,14 @@ router.route('/:company_id')
   })
 
   .get(function(req, res) {
-    res.render('edit', {company: company, moment: moment});
+    res.render('company', {company: company, moment: moment});
   })
 
-router.route('/:companyId/update')
+router.route('/:company_id/update')
   .all(function(req, res, next) {
-    companyId = req.params.departmentId;
+    companyId = req.params.companyId;
     company = {};
-    Company.findById(companyId, function(err, data) {
+    Company.findById(companyId, function(err, company) {
       company = company;
       next();
     });
@@ -70,7 +70,7 @@ router.route('/:companyId/update')
     res.render('update', {update: company});
   })
   .post(function(req, res) {
-    company.company_name= req.body.company_name,
+    update.company_name= req.body.company_name,
     company.stock_symbol= req.body.stock_symbol,
     company.sector= req.body.sector,
     company.subsector= req.body.subsector,
