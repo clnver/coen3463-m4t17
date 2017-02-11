@@ -61,8 +61,8 @@ router.route('/:companyId/update')
   .all(function(req, res, next) {
     companyId = req.params.companyId;
     company = {};
-    Company.findById(companyId, function(err, company) {
-      company = company;
+    Company.findById(companyId, function(err, c) {
+      company = c;
       next();
     });
   })
