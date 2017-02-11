@@ -88,6 +88,7 @@ router.route('/:companyId/update')
       }
     });
   })
+    
 
 router.route('/:companyId/delete')
   .all(function(req, res, next) {

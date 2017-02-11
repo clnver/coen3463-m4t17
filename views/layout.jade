@@ -20,13 +20,16 @@ html(lang='en')
           a#menu-close.btn.btn-light.btn-lg.pull-right.toggle(href='#')
             i.fa.fa-times
           li.sidebar-brand
-            a(href='#top', onclick='$("#menu-close").click();') PSE Edge
+            a(href='/', onclick='$("#menu-close").click();') PSE Edge
           li
-            a(href='#top', onclick='$("#menu-close").click();') Home
+            a(href='/', onclick='$("#menu-close").click();') Home
           li
             a(href='/companies', onclick='$("#menu-close").click();') Add Company
           li
             a(href='/auth/register', onclick='$("#menu-close").click();') Register
+          li
+            a(href='/auth/logout', onclick='$("#menu-close").click();') Logout
+
 
       header#top.header
           .text-vertical-center

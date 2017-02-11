@@ -4,7 +4,7 @@ block content
   .form
     .tab-content
       h1 Add New Company
-      form(action='/', method='post')
+      form(action='/companies/', method='post')
           .top-row
             .field-wrap
               label
@@ -24,31 +24,31 @@ block content
             .field-wrap
               label
                 | Subsector
-              input(type='text', name='subsector', required='', autocomplete='off')
+              input(type='text', name='subsector', autocomplete='off')
             .field-wrap
               label
                 | Listing Date
-              input(type='text', name='listing_date', required='', autocomplete='off')
+              input(type='text', name='listing_date', autocomplete='off')
             .field-wrap
               label
                 | Current CEO
-              input(type='text', name='current_CEO', required='', autocomplete='off')
+              input(type='text', name='current_CEO', autocomplete='off')
           .field-wrap
             label
               | Company Website
-            input(type='email', name='company_website', required='', autocomplete='off')
+            input(type='email', name='company_website', autocomplete='off')
           .field-wrap
             label
               | Company Logo Link
-            input(type='email', name='CompanyLogo_link', required='', autocomplete='off')
+            input(type='email', name='CompanyLogo_link', autocomplete='off')
           .field-wrap
             label
               | Create Date
-            input(type='email', name='create_date', required='', autocomplete='off')
+            input(type='email', name='create_date', autocomplete='off')
           .field-wrap
             label
               | Update Date
-            input(type='email', name='update_date', required='', autocomplete='off')
+            input(type='email', name='update_date', autocomplete='off')
           button.button.button-block(type='submit') Submit
     // tab-content
   // /form
