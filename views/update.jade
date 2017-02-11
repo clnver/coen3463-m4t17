@@ -4,33 +4,33 @@ block content
   .form
     .tab-content
       h1 Update Company Details
-      form(role="form", method="post", action="/companies/#{update._id}?_method=put")
+      form(role="form", method="post", action="/companies/#{update._id}/update")
           .top-row
             .field-wrap
               label
                 | Company Name
                 span.req *
-              input(type="text", name="company_name" value="#{update.company_name}")
+              input(type="text", name="company_name", value="#{update.company_name}")
             .field-wrap
               label
                 | Stock Symbol
                 span.req *
-              input(type="text", name="stock_symbol" value="#{update.stock_symbol}")
+              input(type="text", name="stock_symbol", value="#{update.stock_symbol}")
             .field-wrap
               label
                 | Sector
                 span.req *
-              input(type="text", name="sector" value="#{update.sector}")
+              input(type="text", name="sector", value="#{update.sector}")
             .field-wrap
               label
                 | Subsector
                 span.req *
-              input(type="text", name="subsector" value="#{update.subsector}")
+              input(type="text", name="subsector", value="#{update.subsector}")
           .field-wrap
             label
               | Listing Date
               span.req *
-            input(type="text", name="listing_date" value="#{update.listing_date}")
+            input(type="text", name="listing_date", value="#{update.listing_date}")
           .field-wrap
             label
               | Current CEO

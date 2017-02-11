@@ -43,11 +43,11 @@ router.get('/add', function(req, res) {
 });
 
 
-router.route('/:company_id')
+router.route('/:companyId')
   .all(function(req, res, next) {
-    company_id = req.params.company_id;
+    companyId = req.params.companyId;
     company = {};
-    Company.findById(company_id, function(err, c) {
+    Company.findById(companyId, function(err, c) {
       company = c;
       next();
     });
@@ -57,7 +57,7 @@ router.route('/:company_id')
     res.render('company', {company: company, moment: moment});
   })
 
-router.route('/:company_id/update')
+router.route('/:companyId/update')
   .all(function(req, res, next) {
     companyId = req.params.companyId;
     company = {};
@@ -70,17 +70,16 @@ router.route('/:company_id/update')
     res.render('update', {update: company});
   })
   .post(function(req, res) {
-    company.company_name= req.body.company_name,
-    company.stock_symbol= req.body.stock_symbol,
-    company.sector= req.body.sector,
-    company.subsector= req.body.subsector,
-    company.listing_date= req.body.listing_date,
-    company.company_website= req.body.company_website,
-    company.current_CEO= req.body.current_CEO,
-    company.CompanyLogo_link= req.body.CompanyLogo_link,
-    company.create_date= req.body.create_date,
-    company.update_date= req.body.update_date
-
+    company.company_name = req.body.company_name,
+    company.stock_symbol = req.body.stock_symbol,
+    company.sector = req.body.sector,
+    company.subsector = req.body.subsector,
+    company.listing_date = req.body.listing_date,
+    company.company_website = req.body.company_website,
+    company.current_CEO = req.body.current_CEO,
+    company.CompanyLogo_link = req.body.CompanyLogo_link,
+    company.create_date = req.body.create_date,
+    company.update_date = req.body.update_date,
     company.save(function(err, company, count) {
       if(err) {
         res.status(400).send('Error saving company: ' + err);
