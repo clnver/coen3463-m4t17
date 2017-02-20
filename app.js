@@ -15,21 +15,25 @@ var ObjectId = require('mongodb').ObjectId;
 
 var app = express();
 var db;*/
+const methodOverride = require('method-override');
+const restify = require('express-restify-mongoose');
+const router = express.Router();
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var auth = require ('./routes/auth');
 var update = require ('./routes/update');
 
-var MongoURI = "mongodb://admin:somethingsweet@ds159978.mlab.com:59978/coen3463-m3t17"
+//var MongoURI = "mongodb://admin:somethingsweet@ds159978.mlab.com:59978/coen3463-m3t17"
 
-mongoose.connect(MongoURI, function(err, res) {
+/*mongoose.connect(MongoURI, function(err, res) {
     if (err) {
         console.log('Error connecting to ' + MongoURI);
     } else {
         console.log('MongoDB connected!');
     }
-});
+});*/
+var MongoURI = "mongodb://admin:somethingsweet@ds149059.mlab.com:49059/modules"
 
 var app = express();
 
@@ -43,6 +47,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'secret',
@@ -57,6 +62,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 var User = require('./models/user');
+var Company = require('./models/companies');
 passport.use(User.createStrategy());
 
 passport.serializeUser(User.serializeUser());
@@ -66,8 +72,19 @@ passport.deserializeUser(User.deserializeUser());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+mongoose.connect(MongoURI, function(err, res) {
+     if (err) {
+         console.log('Error connecting to ' + MongoURI);
+     } else {
+         console.log('MongoDB connected!');
+     }
+ });
+ 
+restify.serve(router, Department);
+app.use(router);
+
 app.use('/', index);
-//app.use('/companies', companies);
+app.use('/companies', companies);
 app.use('/auth', auth);
 
 // catch 404 and forward to error handler
