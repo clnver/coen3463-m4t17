@@ -22,7 +22,7 @@ const router = express.Router();
 var index = require('./routes/index');
 var users = require('./routes/users');
 var auth = require ('./routes/auth');
-var update = require ('./routes/update');
+var companies = require ('./routes/companies');
 
 //var MongoURI = "mongodb://admin:somethingsweet@ds159978.mlab.com:59978/coen3463-m3t17"
 
@@ -33,7 +33,7 @@ var update = require ('./routes/update');
         console.log('MongoDB connected!');
     }
 });*/
-var MongoURI = "mongodb://admin:somethingsweet@ds149059.mlab.com:49059/modules"
+var MongoURI = "mongodb://admin:somethingsweet@ds159978.mlab.com:59978/coen3463-m3t17" 
 
 var app = express();
 
@@ -80,7 +80,7 @@ mongoose.connect(MongoURI, function(err, res) {
      }
  });
  
-restify.serve(router, Department);
+restify.serve(router, Company);
 app.use(router);
 
 app.use('/', index);
