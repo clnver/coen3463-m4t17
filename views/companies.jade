@@ -14,5 +14,23 @@ block content
           th Subsector
           th Listing Date
           th Current CEO
-      tbody#table-body
+      tbody
+        if !companies.length
+          tr
+            td(colspan=4) Add Company
+        else
+          each company in companies
+            tr
+              td
+                a(href='/companies/'+company._id) #{company.company_name}
+              td 
+                a(href="/company/#{company._id}") #{company.stock_symbol}
+              td 
+                a(href="/company/#{company._id}") #{company.sector}
+              td 
+                a(href="/company/#{company._id}") #{company.subsector}
+              td 
+                a(href="/company/#{company._id}") #{company.listing_date}
+              td 
+                a(href="/company/#{company._id}") #{company.current_CEO}
     

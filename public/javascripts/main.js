@@ -61,7 +61,7 @@ if (window.location.pathname === '/companies') {
       var tbody = document.getElementById('table-body');
       companies.forEach(function(company) {
         
-        /tbody.insertAdjacentHTML('beforeend', '<td> <a href="/companies/' + company._id + '">' + company.company_name + '</a></td> <td> ' + company.stock_symbol + '</td> <td>' + company.sector + ' </td> <td>' + company.subector + ' </td> <td>' + company.listing_name + ' </td>');
+        tbody.insertAdjacentHTML('beforeend', '<td> <a href="/companies/' + company._id + '">' + company.company_name + '</a></td> <td> ' + company.stock_symbol + '</td> <td>' + company.sector + ' </td> <td>' + company.subector + ' </td> <td>' + company.listing_name + ' </td>');
         //tbody.insertAdjacentHTML('beforeend', '<li><a href="/companies/'+ company._id + '">'+company.company_name+'</a></li>');
         
 
